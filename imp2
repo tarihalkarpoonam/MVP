@@ -214,8 +214,3 @@ public function encodeSomething(array $dataToEncode)
 }
 
 
-print_r($errors);
-        die();
-		<tr>
-						<td colspan="2" height="10px">{{trans "Your quote expires on"}} <b>{{var expirationPeriod}}</b>.</td>
-					</tr>
