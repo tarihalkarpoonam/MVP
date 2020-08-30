@@ -1,0 +1,221 @@
+function silentErrorHandler() {return true;}
+window.onerror=silentErrorHandler;
+
+Uncaught TypeError: Cannot read property '*' of undefined
+    at Object.getAffectedSections (section-config.js:50)
+    at HTMLDocument.<anonymous> (customer-data.js:404)
+    at HTMLDocument.dispatch (jquery.js:5226)
+    at HTMLDocument.elemData.handle (jquery.js:4878)
+
+
+https://b2bdevtelecom.redingtonmea.com/static/version1567502099/frontend/Sm/market_child/en_US/Sm_CartQuickPro/js/custom-addtocart.js
+
+if(sections['*'])
+            {
+                return _.union(_.toArray(actions), _.toArray(sections['*']));
+            }
+
+
+
+upload image need to be solved-priyam
+
+/var/www/html/app/design/frontend/Sm/market_child/Magento_Customer/web/js/section-config.js
+
+Follow the path Stores > Setting > Configuration
+In the menu in the left sidebar choose SALES > Sales
+Expand the Gift Options section and select “Yes” for the options you need.
+Click on Save Config to finish.
+
+
+/var/www/html/app/design/frontend/Sm/market_child/Magento_Checkout/layout/checkout_cart_index.xml
+
+rm -rf pub/static/frontend/Sm/market_child/en_US/
+php bin/magento setup:static-content:deploy -f --theme market_child
+
+
+https://b2bdevtelecom.redingtonmea.com/static/version1567595344/frontend/Sm/market_child/en_US/Redington_Cdc/js/view/payment/method-renderer/cdc-method.js
+
+
+keep on hold
+/var/www/html/app/design/frontend/Sm/market_child/Amasty_Checkout/web/js/view/place-button.js
+
+
+
+/**
+             * Add full text index to our table jobs
+             */
+ 
+            $tableName = $installer->getTable('maxime_job');
+            $fullTextIntex = array('title', 'type', 'location', 'description'); // Column with fulltext index, you can put multiple fields
+ 
+ 
+            $setup->getConnection()->addIndex(
+                $tableName,
+                $installer->getIdxName($tableName, $fullTextIntex, \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT),
+                $fullTextIntex,
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+            );
+
+
+
+
+SN:^[0-9]{5,5}$|AE:^[0-9]{1,6}$|OM:^[0-9]{3,3}$|EG:^[1-9][0-9]{4,4}$|BH:^[0-9]{3,4}$|KE:^[0-9]{5,5}$|KW:^[0-9]{5,5}$|NG:^[0-9]{6,6}$|SA:^[0-9]{5,5}$|TN:^[0-9]{4,4}$
+
+
+
+$quote = $this->quoteRepository->getActive($QuoteId);
+ $quoteItem = $quote->getItemById($itemId);
+if (!$quoteItem) {
+  continue;
+}
+$quoteItem->setQty((double) $qty);
+$quoteItem->save();
+$this->quoteRepository->save($quote);
+At this case, you also need quote id also
+
+DELETE a quote item from Quote
+
+use Magento\Quote\Model\Quote\Item\Repository
+
+and use deleteById($QuoteId, $itemId),method.
+
+
+
+
+
+
+
+
+<div class="btn-megamenu">
+<a href="" ><?php echo $block->getChildHtml('customer.name'); ?></a>
+</div>
+<div class="btn-megamenu">
+<a href="" >Top Deals</a>
+</div>
+<div class="btn-megamenu">
+<a href="" >Help</a>
+</div>
+<div class="btn-megamenu">
+<a href="" >Quick Order</a>
+</div>
+
+
+
+<div class="list-product-home">
+{{block class="Sm\ListingTabs\Block\ListingTabs" template="Sm_ListingTabs::default.phtml" title="Recommended Products" type_show="slider" type_listing="all" display_countdown="0" under_price="5" type_filter="categories" field_tabs="" category_select="" category_tabs="59" order_by="ordered_qty" order_dir="ASC" limitation="6"}}
+</div>
+
+
+/var/www/html/app/code/Redington/Catalog/Setup/Patch/Data
+
+
+->addAttributeToFilter('attribute code', 'option id');
+
+
+priyambad@upi
+
+
+
+
+<referenceContainer name="sidebar.main">
+            <block class="Amasty\Shopby\Block\Navigation\FilterCollapsing\Category" name="catalog.navigation.collapsing" after="catalog.leftnav" template="Amasty_Shopby::layer/filter_collapsing.phtml"/>
+            <block class="Amasty\Shopby\Block\Navigation\SwatchesChoose\Category" name="catalog.navigation.swatches.choose" after="catalog.navigation.collapsing" template="Amasty_Shopby::layer/filter_swatches_choose.phtml"/>
+            <block
+                    class="Amasty\Shopby\Block\Navigation\ApplyButton"
+                    name="amasty.shopby.applybutton.sidebar"
+                    after="catalog.leftnav"
+            >
+                <action method="setNavigationSelector">
+                    <argument name="selector" xsi:type="string">.sidebar</argument>
+                </action>
+                <action method="setButtonPosition">
+                    <argument name="position" xsi:type="string">sidebar</argument>
+                </action>
+            </block>
+        </referenceContainer>
+
+
+
+
+
+
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Advanced Search</title>
+    </head>
+    <update handle="page_calendar"/>
+    <body>
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\LayeredNavigation\Block\Navigation\Category" name="catalog.leftnav" before="-" template="layer/view.phtml">
+            <block class="Magento\LayeredNavigation\Block\Navigation\State" name="catalog.navigation.state" as="state" />
+            <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer" as="renderer" template="layer/filter.phtml"/>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Magento\CatalogSearch\Block\Advanced\Form" name="catalogsearch_advanced_form" template="advanced/form.phtml"/>
+            <block class="Magento\Framework\View\Element\Html\Calendar" name="html_calendar" as="html_calendar" template="Magento_Theme::js/calendar.phtml"/>
+        </referenceContainer>
+    </body>
+</page>
+
+
+Array ( [name] => [sku] => [price] => Array ( [from] => 100 [to] => 700 ) [recomendation] => )
+
+
+
+
+date:
+// $localDate = $this->converToTz(
+        //         $date, 
+        //         // get default timezone of system (UTC)
+        //         $this->timezone->getDefaultTimezone(), 
+        //         // get Config Timezone of current user 
+        //         $this->timezone->getConfigTimezone()
+        //     );
+        // return $localDate;
+        //return $this->timezone->convertConfigTimeToUtc($date,$format = 'Y-m-d H:i:s');
+
+        $today = $this->timezone->date()->format('Y-m-d H:i:s');
+
+        // for convert date time according to magento time zone
+        $dateTimeAsTimeZone = $this->timezone
+                                        ->date(new \DateTime($date))
+                                        ->format('M j,Y, H:i:s A');
+        return $dateTimeAsTimeZone;
+
+
+
+
+/**
+ * @var \Magento\Framework\Json\Helper\Data
+ */
+protected $jsonHelper;
+
+/**
+ * Constructor.
+ * 
+ * @param \Magento\Framework\Json\Helper\Data $jsonHelper
+ */
+public function __construct(\Magento\Framework\Json\Helper\Data $jsonHelper)
+{
+    $this->jsonHelper = $jsonHelper;
+}
+
+/**
+ * @param array $dataToEncode
+ * @return string
+ */
+public function encodeSomething(array $dataToEncode)
+{
+    $encodedData = $this->jsonHelper->jsonEncode($dataToEncode);
+
+    return $encodedData;
+}
+
+
+print_r($errors);
+        die();
+		<tr>
+						<td colspan="2" height="10px">{{trans "Your quote expires on"}} <b>{{var expirationPeriod}}</b>.</td>
+					</tr>
